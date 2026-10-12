@@ -1,6 +1,6 @@
 # Formulario de proyectos · Expotecnia INSAMT 2026
 
-**Estado:** especificación lista para crear en Google Forms. No se ha creado un formulario en la cuenta del instituto todavía.
+**Estado:** formulario creado en Google Forms con hoja de respuestas vinculada. La publicación para los equipos está pendiente de autorización del alcance de acceso.
 
 **Título:** Registro de proyectos para la guía de Expotecnia INSAMT 2026
 
