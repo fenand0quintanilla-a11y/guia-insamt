@@ -1,6 +1,3 @@
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
 # Guía INSAMT · Expotecnia 2026
 
 Guía estática del Instituto Nacional de San Miguel Tepezontes. Incluye un modelo 3D, un plano 2D y fichas de proyectos revisados.
