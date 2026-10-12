@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#103047">
+  <meta name="description" content="Guía provisional de proyectos para la Expotecnia INSAMT 2026.">
+  <title>Expotecnia INSAMT · Encuentra tu proyecto</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#143246;background:#f4f7f6}
+    *{box-sizing:border-box}
+    body{margin:0}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    .top{background:#102f45;color:white;padding:16px max(20px,calc((100vw - 1180px)/2));display:flex;align-items:center;gap:12px}
+    .crest{position:relative;display:block;flex:none;width:52px;height:52px;overflow:hidden;border-radius:5px;background:#fff}.crest img{position:absolute;top:0;left:0;width:515px;max-width:none;height:auto}
+    .brand{font-weight:800;letter-spacing:.04em;font-size:15px}
+    .top small{display:block;color:#b8d6de;font-size:12px;font-weight:500;letter-spacing:0}
+    .hero{background:linear-gradient(120deg,#103047 0%,#195c69 72%,#2b827c 100%);color:#fff;padding:36px max(20px,calc((100vw - 1180px)/2)) 40px}
+    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.17em;font-weight:800;color:#9cf2dc}
+    h1{font-size:clamp(29px,4vw,49px);letter-spacing:-.035em;line-height:1.05;margin:10px 0 12px;max-width:740px}
+    .hero p{margin:0;max-width:650px;color:#dceef1;line-height:1.5}
+    .date{display:inline-flex;margin-top:18px;padding:8px 12px;background:#ffffff1d;border:1px solid #ffffff45;border-radius:9px;font-weight:700;font-size:13px}
+    main{max-width:1220px;margin:auto;padding:24px 20px 48px}
+    .notice{border:1px solid #d6e4e4;background:#fff;border-radius:14px;padding:13px 16px;display:flex;gap:10px;align-items:flex-start;color:#3c5a65;font-size:14px;line-height:1.35;margin-bottom:20px}
+    .notice b{color:#164255}
+    .dot{flex:none;background:#efad5f;width:10px;height:10px;border-radius:100%;margin-top:4px}
+    .layout{display:grid;grid-template-columns:minmax(300px,390px) minmax(0,1fr);gap:18px;align-items:start}
+    .panel{background:#fff;border:1px solid #dce7e7;border-radius:18px;box-shadow:0 10px 32px #1232460b;overflow:hidden}
+    .panelhead{padding:19px 20px 12px}
+    h2{margin:0;font-size:20px;letter-spacing:-.02em}
+    .sub{color:#607884;font-size:13px;margin:5px 0 0;line-height:1.4}
+    .search{margin:4px 20px 13px;display:flex;gap:8px;align-items:center;border:1.5px solid #bdd2d5;border-radius:11px;background:#fbfdfd;padding:0 12px}
+    .search:focus-within{outline:3px solid #67d6c455;border-color:#138a83}
+    .search span{font-size:21px;color:#547583}
+    .search input{border:0;outline:none;background:transparent;width:100%;padding:13px 0;color:#153d51}
+    .quick{display:flex;gap:7px;padding:0 20px 14px}
+    .quick button{border:1px solid #c6dede;background:#edf6f4;color:#20665f;border-radius:100px;padding:7px 11px;font-weight:700;font-size:12px}
+    .quick button:hover{background:#d9f1ec}
+    .count{font-size:12px;color:#6a7d84;padding:0 20px 7px}
+    .items{padding:0 10px 12px;max-height:490px;overflow:auto}
+    .item{width:100%;display:flex;text-align:left;align-items:center;gap:12px;border:1px solid transparent;border-radius:12px;background:#fff;padding:12px 10px;margin:3px 0;color:inherit}
+    .item:hover,.item:focus-visible{border-color:#9bcec6;outline:none;background:#f4fbf9}
+    .item.active{border-color:#2caa98;background:#e9f8f4}
+    .badge{border-radius:10px;background:#f7e4ca;color:#9b5d23;min-width:58px;text-align:center;padding:9px 5px;font-size:12px;font-weight:900}
+    .item b{display:block;font-size:15px}.item small{display:block;color:#69808a;margin-top:3px;font-size:12px}
+    .chev{margin-left:auto;color:#3c8279;font-size:22px}
+    .empty{padding:18px;color:#697f87;font-size:14px}
+    .route{background:#173f52;color:#fff;margin:0 15px 16px;padding:16px;border-radius:14px;min-height:117px}
+    .route .tag{font-size:11px;color:#9debd9;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+    .route h3{font-size:18px;margin:5px 0 8px}.route p{font-size:13px;color:#dfedef;line-height:1.5;margin:0}
+    .map-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:19px 20px 12px}
+    .legend{display:flex;gap:13px;flex-wrap:wrap;padding:0 20px 12px;color:#607680;font-size:12px}
+    .legend span{display:flex;align-items:center;gap:5px}
+    .key{width:12px;height:12px;border-radius:3px;display:inline-block}
+    .map-scroll{overflow:auto;max-height:720px;background:#edf4f2;scrollbar-color:#a9c7c5 transparent}
+    .map-scroll svg{display:block;width:760px;height:980px}
+    .map-foot{padding:12px 20px;color:#5d747c;font-size:12px;line-height:1.4;border-top:1px solid #dce7e7}
+    .room rect{stroke:#386078;stroke-width:1.6;transition:fill .15s,stroke-width .15s}
+    .room{cursor:pointer}.room:hover rect{stroke:#077f77;stroke-width:3}.room.selected rect{stroke:#037f76;stroke-width:4}
+    .room text{pointer-events:none;fill:#1d465a;font-size:11px;font-weight:800;text-anchor:middle;dominant-baseline:middle}
+    .room.context text{font-size:10px;font-weight:700}
+    #routePath{fill:none;stroke:#00ad8d;stroke-width:6;stroke-dasharray:12 7;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px #fff)}
+    footer{max-width:1220px;margin:auto;padding:0 20px 25px;color:#6d8087;font-size:12px}
+    @media(max-width:850px){.layout{grid-template-columns:1fr}.items{max-height:none}.map-scroll{max-height:580px}}
+  </style>
+</head>
+<body>
+  <header class="top"><span class="crest"><img src="./assets/horario-insamt-2026.jpg" alt="Escudo del INSAMT"></span><div class="brand">INSAMT<small>Instituto Nacional de San Miguel Tepezontes</small></div></header>
+  <section class="hero">
+    <div class="eyebrow">Guía para visitantes · versión inicial</div>
+    <h1>Encuentra tu proyecto<br>en la Expotecnia</h1>
+    <p>Busca un proyecto y sigue la ruta marcada desde la entrada principal. El directorio se ampliará cuando se confirmen más ubicaciones.</p>
+    <span class="date">13 de octubre de 2026</span>
+  </section>
+  <main>
+    <div class="notice"><span class="dot" aria-hidden="true"></span><div><b id="noticeCount">Proyectos con ubicación confirmada.</b> El plano es esquemático y sus distancias aún son aproximadas. Pregunta al personal si una señal del lugar difiere de la guía.</div></div>
+    <div class="layout">
+      <section class="panel" aria-labelledby="projects-title">
+        <div class="panelhead"><h2 id="projects-title">Proyectos confirmados</h2><p class="sub">Ubicaciones revisadas para la Expotecnia.</p></div>
+        <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar proyecto o aula" aria-label="Buscar proyecto o aula" autocomplete="off"></label>
+        <div class="quick"><button type="button" data-filter="Aula 3">Aula 3</button><button type="button" data-filter="Aula 4">Aula 4</button><button type="button" data-filter="">Ver todos</button></div>
+        <div id="count" class="count"></div>
+        <div id="items" class="items"></div>
+        <div id="route" class="route" role="status" aria-live="polite"></div>
+      </section>
+      <section class="panel" aria-labelledby="map-title">
+        <div class="map-head"><div><h2 id="map-title">Plano de ubicación</h2><p class="sub">Vista esquemática de los dos pabellones. <a href="./index.html">Abrir mapa 3D</a> para ver el segundo piso y fichas completas.</p></div></div>
+        <div class="legend"><span><i class="key" style="background:#f6c58b"></i>Proyecto confirmado</span><span><i class="key" style="background:#dcecf0"></i>Otros espacios</span><span><i class="key" style="background:#00ad8d"></i>Ruta</span></div>
+        <div class="map-scroll" id="mapScroll"><svg id="campusMap" viewBox="0 0 760 980" aria-label="Plano esquemático del instituto con entrada, pabellones, cancha y aulas" role="img"></svg></div>
+        <div class="map-foot">Desliza el plano para explorar el segundo pabellón. Toca un aula para ver su información. Rutas y puertas pendientes de verificación presencial.</div>
+      </section>
+    </div>
+  </main>
+  <footer>Instituto Nacional de San Miguel Tepezontes · La Paz, El Salvador · Creado por estudiantes de 1.º BTV Desarrollo de Software · <span style="font-family:Georgia,serif;font-style:italic">F.Q</span></footer>
+  <script type="module">
+    import { PROJECTS } from './project-data.js';
+    "use strict";
+    const ROOMS = [
+      {id:"Taller abierto",label:"Taller abierto",x:-1.7,y:0,w:8.06,h:15,kind:"special"},
+      {id:"Bodega del taller",label:"Bodega 3×4",x:-1.7,y:0,w:3,h:4,kind:"special"},
+      {id:"Cuartos de residuos",label:"R ×5",x:-1.35,y:9,w:2,h:5,kind:"special"},
+      {id:"Baños femeninos 1",label:"Baños F.",x:0,y:15,w:6,h:6,kind:"special"},
+      {id:"Baños masculinos 1",label:"Baños M.",x:0,y:21,w:6,h:6,kind:"special"},
+      {id:"Maestros y dirección",label:"Maestros",x:0,y:27,w:6,h:6,kind:"special"},
+      {id:"Aula 1",label:"Aula 1",x:0,y:33,w:6,h:6},
+      {id:"Aula 2",label:"Aula 2",x:0,y:39,w:6,h:6},
+      {id:"Aula 3",label:"Aula 3",x:0,y:45,w:6,h:6},
+      {id:"Aula 4",label:"Aula 4",x:0,y:51,w:6,h:6},
+      {id:"Cocina",label:"Cocina",x:0,y:57,w:6,h:6,kind:"special"},
+      {id:"Chalet 1",label:"Chalet 1",x:30,y:-1,w:6,h:6,kind:"special"},
+      {id:"Aula 5",label:"Aula 5",x:30,y:14,w:6,h:7.5},
+      {id:"Aula 6",label:"Aula 6",x:30,y:21.5,w:6,h:7.5},
+      {id:"Escaleras en U",label:"Escaleras U",x:30,y:29,w:6,h:7.2,kind:"special"},
+      {id:"Bodega de escaleras",label:"Bod.",x:30,y:35,w:2,h:1.2,kind:"special"},
+      {id:"Baños femeninos 2",label:"Baños F. 2",x:30,y:36.2,w:6,h:3,kind:"special"},
+      {id:"Baños masculinos 2",label:"Baños M. 2",x:30,y:39.2,w:6,h:3,kind:"special"},
+      {id:"Aula 7",label:"Aula 7",x:30,y:42.2,w:6,h:6},
+      {id:"Aula 8 / Laboratorio",label:"Laboratorio",x:28,y:48.2,w:8,h:6},
+      {id:"Clínica",label:"Clínica",x:22,y:45.2,w:6,h:9,kind:"special"},
+      {id:"Chalet 2",label:"Chalet 2",x:15,y:49.2,w:4.5,h:5,kind:"special"}
+    ];
+    const svg=document.getElementById("campusMap"),items=document.getElementById("items");
+    const search=document.getElementById("search"),route=document.getElementById("route");
+    const ns="http://www.w3.org/2000/svg";
+    const X=x=>70+x*16,Y=y=>920-y*14;
+    const node=(tag,attrs={},parent=svg)=>{const el=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));parent.appendChild(el);return el};
+    const text=(x,y,value,size=12,fill="#31576a",weight=700)=>{const el=node("text",{x,y,"text-anchor":"middle","font-size":size,fill,"font-weight":weight});el.textContent=value;return el};
+    const box=(x,y,w,h,fill,stroke="#809fa7",rx=0)=>node("rect",{x:X(x),y:Y(y+h),width:w*16,height:h*14,fill,stroke,"stroke-width":1.4,rx});
+    const normalize=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+    let selected="Aula 4",selectedProject="InnovaBoard";
+    function drawMap(){
+      const defs=node("defs");
+      const pattern=node("pattern",{id:"grid",width:28,height:28,patternUnits:"userSpaceOnUse"},defs);
+      node("path",{d:"M 28 0 L 0 0 0 28",fill:"none",stroke:"#dce8e5","stroke-width":1},pattern);
+      const marker=node("marker",{id:"arrow",markerWidth:9,markerHeight:9,refX:8,refY:4.5,orient:"auto"},defs);
+      node("path",{d:"M0 0 L9 4.5 L0 9 Z",fill:"#00ad8d"},marker);
+      node("rect",{x:0,y:0,width:760,height:980,fill:"#f2f7f5"});
+      node("rect",{x:0,y:0,width:760,height:980,fill:"url(#grid)"});
+      box(6.4,0,3.05,15,"#dceee7","#a4c8b6");
+      box(6.4,15,1.8,48,"#dceee7","#a4c8b6");
+      box(8.2,15,1,11,"#a8bac1","#718e98");box(8.2,35,1,28,"#a8bac1","#718e98");
+      box(9.2,15,5,11,"#b2d1ab","#74a873");box(9.2,35,5,28,"#b2d1ab","#74a873");
+      box(28,14,1.5,34.2,"#dceee7","#a4c8b6");
+      box(22,43.7,6,1.5,"#dceee7","#a4c8b6");
+      box(14.2,5,22,7,"#ddb293","#a67959");
+      box(18.2,5,18,7,"#dce9e8","#8fa5a8");
+      node("line",{x1:X(14.2),y1:Y(5.5),x2:X(14.2),y2:Y(33),stroke:"#174771","stroke-width":3});
+      node("line",{x1:X(14.2),y1:Y(37.5),x2:X(14.2),y2:Y(63),stroke:"#174771","stroke-width":3});
+      node("line",{x1:X(-1.7),y1:Y(4),x2:X(-1.7),y2:Y(15),stroke:"#174771","stroke-width":5});
+      text(X(26.6),Y(8.5),"TECHO CANCHA",16,"#46616b",800);
+      box(14.2,34.4,2,.6,"#dceee7","#a4c8b6");
+      box(8.2,3.4,4.8,2,"#e4d9bf");
+      box(13,3.4,2.2,2,"#e4d9bf");
+      box(8.2,34.5,1,3,"#e4d9bf"); // bridge over the drain
+      box(9.2,34.5,5,3,"#e4d9bf"); // stair toward upper terrain
+      box(14.2,34.5,2,3,"#e4d9bf");
+      box(8.2,26,2.8,1.4,"#e4d9bf"); // acceso inferior
+      box(9.6,27.4,1.4,5.6,"#c9eee2");box(11.2,27.4,1.4,5.6,"#c9eee2");box(12.8,27.4,1.4,5.6,"#c9eee2");
+      box(9.6,33,3,1.4,"#c9eee2");box(11.2,26,3,1.4,"#c9eee2");
+      box(12.8,33,1.4,1.4,"#c9eee2"); // giro final, al ras de la terraza
+      text(X(16.9),Y(28.9),"RAMPA 2 U",11,"#2d7765",800);
+      text(X(17.8),Y(33.7),"SALIDA →",10,"#2d7765",800);
+      box(10.5,-1,4.8,1.8,"#eee2c9");box(16.2,-1,5,4,"#e0eee5");
+      box(23.05,-.95,2.1,2.1,"#9fc9d9");box(23.05,1.15,2.1,2.1,"#eee2c9");
+      text(X(7.3),Y(43),"PASILLO 1",11,"#29725e",800).setAttribute("transform",`rotate(-90 ${X(7.3)} ${Y(43)})`);
+      text(X(28.7),Y(22),"PASILLO 2",11,"#29725e",800).setAttribute("transform",`rotate(-90 ${X(28.7)} ${Y(22)})`);
+      text(X(4),Y(64.2),"PABELLÓN 1 · NIVEL DE ENTRADA",13,"#355568",800);
+      text(X(29),Y(54),"PABELLÓN 2 · NIVEL DE CANCHA",13,"#355568",800);
+      ROOMS.forEach(r=>{
+        const featured=PROJECTS.some(p=>p.room===r.id);
+        const g=node("g",{class:"room"+(featured?" featured":"")+(r.kind?" context":""),"data-room":r.id,tabindex:0,role:"button","aria-label":r.id+"; "+(PROJECTS.filter(p=>p.room===r.id).map(p=>p.name).join(", ")||"proyectos aún sin confirmar")});
+        node("rect",{x:X(r.x),y:Y(r.y+r.h),width:r.w*16,height:r.h*14,fill:featured?"#f6c58b":r.kind?"#f1e5cf":"#dcecf0"},g);
+        const t=node("text",{x:X(r.x+r.w/2),y:Y(r.y+r.h/2)},g);t.textContent=r.label;
+        const title=node("title",{},g);title.textContent=r.id;
+        g.addEventListener("click",()=>chooseRoom(r.id));
+        g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();chooseRoom(r.id)}});
+      });
+      // Main doors of the L: Clínica faces Aula 7; Laboratorio faces Pasillo 2.
+      node("line",{x1:X(28),y1:Y(46.37),x2:X(28),y2:Y(47.33),stroke:"#16835d","stroke-width":5,"pointer-events":"none"});
+      node("line",{x1:X(28.87),y1:Y(48.2),x2:X(29.83),y2:Y(48.2),stroke:"#16835d","stroke-width":5,"pointer-events":"none"});
+      // Five doors face east from the left of the workshop.
+      for(let i=0;i<5;i++){
+        node("line",{x1:X(-1.35),y1:Y(9+i),x2:X(.65),y2:Y(9+i),stroke:"#809fa7","stroke-width":1.2});
+        node("line",{x1:X(.65),y1:Y(9+i+.15),x2:X(.65),y2:Y(9+i+.85),stroke:"#174771","stroke-width":3});
+      }
+      for(let i=1;i<15;i++){
+        const xx=8.2+i*4.8/15;
+        node("line",{x1:X(xx),y1:Y(3.4),x2:X(xx),y2:Y(5.4),stroke:"#809fa7","stroke-width":1});
+      }
+      for(let i=1;i<15;i++){
+        const xx=9.2+i*5/15;
+        node("line",{x1:X(xx),y1:Y(34.5),x2:X(xx),y2:Y(37.5),stroke:"#809fa7","stroke-width":1});
+      }
+      text(X(11.8),Y(37.9),"GRADAS 3 m",9,"#516b75",800);
+      // Both U flights cross the pavilion; the turn sits at the east wall.
+      box(28,29.4,2.1,2.25,"#e4d9bf");
+      box(35.1,29.4,.9,5.1,"#e4d9bf");
+      box(28,32.25,2.15,2.25,"#e4d9bf");
+      for(let i=1;i<15;i++){
+        const xx=30.1+i*5/15;
+        for(const [a,b] of [[29.4,31.65],[32.25,34.5]])node("line",{x1:X(xx),y1:Y(a),x2:X(xx),y2:Y(b),stroke:"#809fa7","stroke-width":1});
+      }
+      text(X(33),Y(30.55),"→",15,"#31576a",900);
+      text(X(33),Y(33.38),"←",15,"#31576a",900);
+      text(X(24.2),Y(32.1),"ESCALERA U",9,"#516b75",800);
+      node("polyline",{points:[[12.8,27.4],[12.8,33],[12.8,34.4]].map(([a,b])=>`${X(a)},${Y(b)}`).join(" "),fill:"none",stroke:"#174771","stroke-width":3,"stroke-linejoin":"round"});
+      node("line",{x1:X(1.3),y1:Y(-.45),x2:X(9.5),y2:Y(-.45),stroke:"#164b83","stroke-width":9});
+      text(X(5.4),Y(-.45)-9,"PORTÓN INSAMT",11,"#164b83",900);
+      for(const yy of [5.02,6.30])node("line",{x1:X(-.75),y1:Y(yy),x2:X(5.25),y2:Y(yy),stroke:"#496b78","stroke-width":2.5});
+      text(X(2.5),Y(5.85),"ELEVADOR →",11,"#31576a",800);
+      const routeLine=node("path",{id:"routePath","marker-end":"url(#arrow)"});
+      node("circle",{cx:X(7.3),cy:Y(0),r:9,fill:"#0a9f87",stroke:"white","stroke-width":3});
+      text(X(7.3),Y(0)+31,"ENTRADA",13,"#115d55",900);
+      updateRouteLine();
+    }
+    function updateRouteLine(){
+      const el=document.getElementById("routePath");
+      const room=ROOMS.find(r=>r.id===selected);
+      if(!room){el.setAttribute("d","");return}
+      const center=room.y+room.h/2;
+      if(room.x===0)el.setAttribute("d",`M ${X(7.3)} ${Y(0)} L ${X(7.3)} ${Y(center)} L ${X(6.0)} ${Y(center)}`);
+      else el.setAttribute("d",`M ${X(7.3)} ${Y(0)} L ${X(7.3)} ${Y(4.4)} L ${X(14.2)} ${Y(4.4)} L ${X(28.7)} ${Y(13.3)} L ${X(28.7)} ${Y(Math.min(center,43.5))} L ${X(room.x<28?room.x+room.w:room.x)} ${Y(center)}`);
+    }
+    function renderList(){
+      const q=normalize(search.value.trim());
+      const filtered=PROJECTS.filter(p=>normalize(p.name+" "+p.room+" "+p.group).includes(q));
+      document.getElementById("count").textContent=`${filtered.length} de ${PROJECTS.length} proyectos confirmados`;
+      items.replaceChildren();
+      if(!filtered.length){const e=document.createElement("p");e.className="empty";e.textContent="Aún no hay un proyecto confirmado con ese nombre. Prueba con otra búsqueda.";items.append(e)}
+      filtered.forEach(p=>{
+        const b=document.createElement("button");b.type="button";b.className="item"+(selectedProject===p.name?" active":"");
+        b.setAttribute("aria-label",p.name+" en "+p.room+"; ver ruta");
+        const badge=document.createElement("span");badge.className="badge";badge.textContent=p.room;
+        const info=document.createElement("span");
+        const strong=document.createElement("b");strong.textContent=p.name;
+        const small=document.createElement("small");small.textContent=p.group+" · "+(p.room.startsWith("Aula ")&&Number(p.room.split(" ")[1])<=4?"Pabellón 1":"Pabellón 2");
+        info.append(strong,small);
+        const arrow=document.createElement("span");arrow.className="chev";arrow.textContent="›";arrow.setAttribute("aria-hidden","true");
+        b.append(badge,info,arrow);b.addEventListener("click",()=>selectProject(p));
+        items.append(b);
+      });
+    }
+    function chooseRoom(id){
+      selected=id;
+      const projects=PROJECTS.filter(p=>p.room===id);
+      selectedProject=projects[0]?.name||"";
+      if(projects.length){
+        const names=projects.map(p=>p.name).join(" y ");
+        route.innerHTML=`<span class="tag">Ruta desde la entrada</span><h3></h3><p></p>`;
+        route.querySelector("h3").textContent=names+" · "+id;
+        route.querySelector("p").textContent=(ROOMS.find(r=>r.id===id)?.x===0?"Entra por el acceso principal y sigue el Pasillo 1.":"Entra, sube al nivel de la cancha y sigue hacia el Pabellón 2.")+" Sigue la línea verde del plano hasta "+id+". Para el segundo piso, usa la escalera en U.";
+      }else{
+        route.innerHTML=`<span class="tag">Espacio del instituto</span><h3></h3><p>La ubicación de proyectos en este espacio aún no está confirmada.</p>`;
+        route.querySelector("h3").textContent=id;
+      }
+      document.querySelectorAll(".room").forEach(g=>g.classList.toggle("selected",g.dataset.room===id));
+      updateRouteLine();renderList();
+    }
+    function selectProject(p){selectedProject=p.name;chooseRoom(p.room);selectedProject=p.name;renderList();document.getElementById("campusMap").scrollIntoView({behavior:"smooth",block:"nearest"})}
+    search.addEventListener("input",renderList);
+    document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{search.value=b.dataset.filter;renderList();search.focus()}));
+    document.getElementById('noticeCount').textContent=`${PROJECTS.length} proyectos con ubicación confirmada.`;
+    drawMap();chooseRoom(PROJECTS[0]?.room||"Aula 4");
+  </script>
+</body>
+</html>
